@@ -7,7 +7,7 @@ Feature: Source file must be present, compilable and output correct information
 		Then 20 points are awarded
 
 	Scenario: nanosh.c must be compilable with no errors
-		When I run `gcc -o ../../bin/nanosh ../../bin/nanosh.c` 
+		When I run `gcc -Wall -o ../../bin/nanosh ../../bin/nanosh.c` 
 		Then a file named "../../bin/nanosh" should exist
 		Then 20 points are awarded
 
