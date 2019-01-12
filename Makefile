@@ -1,2 +1,2 @@
 nanosh: nanosh.c
-	gcc -Wall -ggdb -o nanosh nanosh.c
+	gcc -Wall -Werror -ggdb -o nanosh nanosh.c
