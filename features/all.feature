@@ -1,3 +1,4 @@
+Feature: Source file must be present, compilable and output correct information
 
 	Scenario: nanosh.c must be found
 		When I run `rm ../../bin/*`
