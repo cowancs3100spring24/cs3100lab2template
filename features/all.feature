@@ -1,4 +1,3 @@
-Feature: Source file must be present, compilable and output correct information
 
 	Scenario: nanosh.c must be found
 		When I run `rm ../../bin/*`
@@ -7,7 +6,7 @@ Feature: Source file must be present, compilable and output correct information
 		Then 20 points are awarded
 
 	Scenario: nanosh.c must be compilable with no errors
-		When I run `gcc -Wall -o ../../bin/nanosh ../../bin/nanosh.c` 
+		When I run `gcc -Wall -Werror -o ../../bin/nanosh ../../bin/nanosh.c` 
 		Then a file named "../../bin/nanosh" should exist
 		Then 20 points are awarded
 
@@ -88,7 +87,7 @@ Feature: Source file must be present, compilable and output correct information
 		Then 10 points are awarded
 
 	Scenario: nanosh CMD should fork() and execvp() CMD
-		When I run `gcc -c ../../bin/nanosh.c -o nanosh.o`
+		When I run `gcc -Wall -Werror -c ../../bin/nanosh.c -o nanosh.o`
 		And I run `nm nanosh.o`
 		And the output should contain "U fork"
 		And the output should contain "U execvp"
@@ -104,7 +103,7 @@ Feature: Source file must be present, compilable and output correct information
 		Then 10 points are awarded
 
 	Scenario: nanosh CMD should call waitpid()
-		When I run `gcc -c ../../bin/nanosh.c -o nanosh.o`
+		When I run `gcc -Wall -Werror -c ../../bin/nanosh.c -o nanosh.o`
 		And I run `nm nanosh.o`
 		And the output should contain "U waitpid"
 		Then 10 points are awarded
